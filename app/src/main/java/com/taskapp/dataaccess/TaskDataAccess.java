@@ -105,9 +105,9 @@ public class TaskDataAccess {
      * @param updateTask 更新するタスク
      */
     public void update(Task updateTask) {
+        List<Task> tasks = findAll();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write("Code,Name,Status,Rep_User_Code\n");
-            List<Task> tasks = findAll();
             String line;
 
             for(Task task : tasks){

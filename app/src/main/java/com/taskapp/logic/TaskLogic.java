@@ -107,6 +107,8 @@ public class TaskLogic {
         if (!(status - updateTask.getStatus() == 1)) {
             throw new AppException("ステータスは、前のステータスより1つ先のもののみを選択してください");
         }
+        
+        updateTask.setStatus(status);
         taskDataAccess.update(updateTask);
 
         Log log = new Log(code, loginUser.getCode() , status, LocalDate.now());
